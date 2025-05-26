@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LibrasParaTodos</string>
+    <string name="palavra">Palavra</string>
+    <string name="Pesquisar">Pesquisar</string>
+    <string name="search">Digite uma palavra</string>
+    <string name="titulo">Aprenda de forma fácil e prática</string>
+    <string name="Creators">Criadores</string>
+    <string name="Home">Home</string>
+</resources>

@@ -1,0 +1,16 @@
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="Início" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_criadores"
+        android:title="Criadores" />
+    <item
+        android:id="@+id/videos"
+        android:icon="@drawable/ic_video"
+        android:title="Vídeos" />
+</menu>
+
