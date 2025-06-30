@@ -12,6 +12,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import org.json.JSONObject
+import java.text.Normalizer
 
 class TelaVideos : AppCompatActivity() {
 
@@ -25,7 +26,7 @@ class TelaVideos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_videos)
 
-        // Configuração da barra de navegação
+        // Barra de navegação
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.nav_bar)
         bottomNavigationView.selectedItemId = R.id.videos
 
@@ -46,35 +47,44 @@ class TelaVideos : AppCompatActivity() {
             }
         }
 
-        // Carrega o JSON
-        mapaVideos = carregarVideosJson(this)
-
-        // Referências da interface
+        // Referências
         campoBusca = findViewById(R.id.campo_busca)
         iconeBusca = findViewById(R.id.icone_busca)
         youTubePlayerView = findViewById(R.id.youtube_player_view)
         lifecycle.addObserver(youTubePlayerView)
 
-        // Inicializa o player (uma vez)
+        // Carrega o JSON com as palavras normalizadas
+        mapaVideos = carregarVideosJson(this)
+
+        // Inicializa o player do YouTube
         youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(player: YouTubePlayer) {
                 youTubePlayer = player
             }
         })
 
-        // Quando clica na lupa
+        // Busca e reproduz vídeo
         iconeBusca.setOnClickListener {
-            val palavra = campoBusca.text.toString().lowercase().trim()
-            val videoId = mapaVideos[palavra]
+            val palavraDigitada = removerAcentos(campoBusca.text.toString())
+            val videoId = mapaVideos[palavraDigitada]
 
             if (videoId != null) {
                 youTubePlayer.loadVideo(videoId, 0f)
             } else {
-                Toast.makeText(this, "Vídeo não encontrado para \"$palavra\"", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Vídeo não encontrado para \"$palavraDigitada\"", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
+    // 🔧 Função para normalizar a palavra (acentos, espaços, maiúsculas)
+    private fun removerAcentos(texto: String): String {
+        return Normalizer.normalize(texto, Normalizer.Form.NFD)
+            .replace("\\p{InCombiningDiacriticalMarks}+".toRegex(), "")
+            .lowercase()
+            .trim()
+    }
+
+    // 🔧 Função para carregar JSON já com palavras normalizadas
     private fun carregarVideosJson(context: Context): Map<String, String> {
         val inputStream = context.resources.openRawResource(R.raw.videos)
         val jsonString = inputStream.bufferedReader().use { it.readText() }
@@ -82,10 +92,12 @@ class TelaVideos : AppCompatActivity() {
 
         val mapa = mutableMapOf<String, String>()
         jsonObject.keys().forEach { chave ->
+            val chaveNormalizada = removerAcentos(chave)
             val videoId = jsonObject.getString(chave)
-            mapa[chave.lowercase()] = videoId
+            mapa[chaveNormalizada] = videoId
         }
 
         return mapa
     }
 }
+
