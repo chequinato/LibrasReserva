@@ -51,15 +51,16 @@
             app:tint="@color/black" />
     </RelativeLayout>
 
-    <!-- Player de vídeo abaixo do cabeçalho -->
-    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-        android:id="@+id/youtube_player_view"
-        android:layout_width="300dp"
+    <!-- RecyclerView para mostrar vários vídeos -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_videos"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/cabecalho"
-        android:layout_marginTop="20dp"
         android:layout_above="@id/nav_bar"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="10dp"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
 
     <!-- BottomNavigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

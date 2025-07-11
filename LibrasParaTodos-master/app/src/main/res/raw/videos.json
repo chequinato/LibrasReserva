@@ -1,6 +1,49 @@
 
 {
-    "cumprimentos": "rYMXQFf1n_8",
-    "escola": "smstQXBgvgg",
-    "pronomes": "IOJzZs794To"
+    "categorias": {
+        "cumprimentos": {
+            "Altura": "OdUxIkLQJ_I",
+            "Boa Noite": "t-tSBYbasA8",
+            "Bom Dia": "hzEMKmxmsMU",
+            "Bom": "Itdo0yG5wK4",
+            "Com Licença/ Por Favor": "sE9hcDDzSQM",
+            "Conhecer": "uiJQDIEfnZ0",
+            "Cumprimento": "R6ieruhhia8",
+            "De nada": "0npVuMFN0yw",
+            "Desculpe": "FVqD0yqnNCg",
+            "Idade": "n6L_rxdeHus",
+            "Meu Nome Completo": "LofwNFZdtAo",
+            "Meu Nome": "A-GwbcrhH60",
+            "Meu Sinal": "ELh53HlYc14",
+            "Obrigado(a)": "ssR7WvzF6aY",
+            "Oi": "KPNGy6JyLJ8",
+            "Peso": "2U3s5eEFONk",
+            "Prazer em Conhecer": "oc1wYwhusHA",
+            "Saudades": "j-dFV4ldppE",
+            "Seu Nome": "K0pWMFHLRHc",
+            "Seu Sinal": "1fNxz1R1iVM",
+            "Tchau": "3yfOIysAudg",
+            "Tudo Bem": "npaJzMpD9Eg"
+        },
+        "escola": {
+            "Apontador": "rVuEQcoL5Bk",
+            "Artes": "0zEdHDObskg",
+            "Banheiro": "QIpZQdr5iBM",
+            "Banheiro dos Professores": "7JN4Fe1jG2Y",
+            "Banheiro Feminino": "f4Tn3hOFktM",
+            "Banheiro Masculino": "wzqf5-SHkFk",
+            "Biblioteca": "XNHKDrT3VaE",
+            "Borracha": "H2Emw3jjN4M"
+        },
+        "pronomes": {
+            "Ela": "SxUlwKVwmtQ",
+            "Ele": "qKKupz1raSg",
+            "Eu": "eMrt0JHFULU",
+            "Nós": "vk_uXzKa8sk",
+            "Pronomes": "RsDQ4l26_s8",
+            "Seu": "jojC0Cb63f4",
+            "Teu": "Hec1tbR3OWI",
+            "Você": "lr4DEXVyEsk"
+        }
+    }
 }
