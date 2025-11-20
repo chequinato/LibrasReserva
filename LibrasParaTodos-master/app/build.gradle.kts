@@ -48,7 +48,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(files("libs/YouTubeAndroidPlayerApi.jar"))
+    //implementation(files("libs/YouTubeAndroidPlayerApi.jar"))
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
 
 

@@ -12,12 +12,13 @@ class YoutubeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_youtube)
 
+        val videoId = intent.getStringExtra("VIDEO_ID") ?: ""
+
         val youtubePlayerView = findViewById<YouTubePlayerView>(R.id.youtube_player_view)
-        lifecycle.addObserver(youtubePlayerView) // importante para lifecycle
+        lifecycle.addObserver(youtubePlayerView)
 
         youtubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                val videoId = "DRYrRIqfbKE"  // seu vídeo fixo
                 youTubePlayer.loadVideo(videoId, 0f)
             }
         })
